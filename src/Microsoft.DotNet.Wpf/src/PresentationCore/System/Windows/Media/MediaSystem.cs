@@ -79,6 +79,15 @@ namespace System.Windows.Media
                 }
                 s_refCount++;
             }
+
+            // Set renderOption if Hardware acceleration is enabled for RDP
+
+            bool isHardwareAccelerationEnabledForRdp = false;
+            AppContext.TryGetSwitch("System.Windows.Media.IsHardwareAccelerationEnabledForRdp", out isHardwareAccelerationEnabledForRdp);
+            if(isHardwareAccelerationEnabledForRdp)
+            {
+                UnsafeNativeMethods.RenderOptions_EnableGraphicHWAccelerationForRdp(isHardwareAccelerationEnabledForRdp);
+            }
             // Consider making MediaSystem.ConnectTransport return the state of transport connectedness so
             // that we can initialize the media system to a disconnected state.
 
