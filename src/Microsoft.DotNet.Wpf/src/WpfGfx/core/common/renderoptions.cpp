@@ -23,12 +23,6 @@ RenderOptions_IsSoftwareRenderingForcedForProcess()
     return RenderOptions::IsSoftwareRenderingForcedForProcess();
 }
 
-void WINAPI
-RenderOptions_EnableGraphicHWAccelerationForRdp(BOOL fEnable)
-{
-    RenderOptions::EnableGraphicHWAccelerationForRdp(fEnable);
-}
-
 // m_cs must be entered before accessing m_fForceSoftware because multiple
 // managed threads plus the render thread could try to access it
 static CCriticalSection m_cs;
@@ -109,11 +103,14 @@ RenderOptions::IsSoftwareRenderingForcedForProcess()
 //  Synopsis:   Sets whether or not Hardware Acceleration should be enabled for RDP.
 //
 //----------------------------------------------------------------------------------
-void
+HRESULT
 RenderOptions::EnableGraphicHWAccelerationForRdp(BOOL fEnable)
 {
+    HRESULT hr = S_OK;
     CGuard<CCriticalSection> guard(m_cs);
     m_fHwAccelerationForRDPEnabled = !!fEnable;
+    
+    RRETURN(hr);
 }
 
 //+---------------------------------------------------------------------------------

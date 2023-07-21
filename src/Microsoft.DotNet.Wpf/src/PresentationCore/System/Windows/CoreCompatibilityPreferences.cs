@@ -30,6 +30,7 @@ namespace System.Windows
             {
                 SetIncludeAllInkInBoundingBoxFromAppSettings(appSettings);
                 SetEnableMultiMonitorDisplayClippingFromAppSettings(appSettings);
+                SetIsHardwareAccelerationEnabledForRdp(appSettings);
             }
         }
 
@@ -174,6 +175,44 @@ namespace System.Windows
         }
 
         #endregion
+
+        #region IsHardwareAccelerationEnabledForRdp
+        private static bool? _isHardwareAccelerationEnabledForRdp = null;
+        public static bool? IsHardwareAccelerationEnabledForRdp
+        {
+            get { return GetIsHardwareAccelerationEnabledForRdp(); }
+            set
+            {
+                lock(_lockObject)
+                {
+                    if(_isSealed)
+                    {
+                        throw new InvalidOperationException(SR.Format(SR.CompatibilityPreferencesSealed, "DisableHardwareAccelerationEnabledForRdp", "CoreCompatibilityPreferences"));
+                    }
+
+                    _isHardwareAccelerationEnabledForRdp = value; 
+                }
+            }
+        }
+
+        internal static bool? GetIsHardwareAccelerationEnabledForRdp()
+        {
+            Seal();
+
+            return _isHardwareAccelerationEnabledForRdp;
+        }
+
+        static void SetIsHardwareAccelerationEnabledForRdp(NameValueCollection appSettings)
+        {
+            string s = appSettings["IsHardwareAccelerationEnabledForRdp"];
+            bool value; 
+            if (Boolean.TryParse(s, out value))
+            {
+                IsHardwareAccelerationEnabledForRdp = value; 
+            }
+        }
+
+        #endregion IsHardwareAccelerationEnabledForRdp
 
         private static void Seal()
         {

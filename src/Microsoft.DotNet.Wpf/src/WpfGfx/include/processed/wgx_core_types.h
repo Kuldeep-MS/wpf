@@ -864,6 +864,11 @@ BEGIN_MILFLAGENUM( MilRTInitialization )
     //
     DisableDirtyRectangles = 0x00010000,
 
+    //
+    // This flag indicates that Hardware acceleration is enabled for Rdp.
+    //
+    EnableHardwareAccelerationForRdp = 0x00020000,
+
 
     //
     // Test only / internal flags

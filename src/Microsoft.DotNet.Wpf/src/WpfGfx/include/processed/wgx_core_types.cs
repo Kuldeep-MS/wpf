@@ -182,6 +182,10 @@ namespace System.Windows.Media.Composition
         // culling optimization.
         MIL_UCE_RT_ENABLE_OCCLUSION     = 0x00010000,
     
+        //
+        // This flag indicates that Hardware acceleration is enabled for Rdp.
+        //
+        MIL_RT_ENABLE_HARDWARE_ACCELERATION_FOR_RDP = 0x00020000,
     
         //
         // Test only / internal flags

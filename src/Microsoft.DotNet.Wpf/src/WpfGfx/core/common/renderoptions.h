@@ -19,7 +19,7 @@ namespace RenderOptions
 
     BOOL IsSoftwareRenderingForcedForProcess();
 
-    void EnableGraphicHWAccelerationForRdp(BOOL fEnable);
+    HRESULT EnableGraphicHWAccelerationForRdp(BOOL fEnable);
 
     BOOL IsGraphicHWAccelerationForRdpEnabled();
 };

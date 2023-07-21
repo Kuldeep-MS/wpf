@@ -208,10 +208,7 @@ namespace MS.Win32.PresentationCore
                 bool fForce);
 
             [DllImport(DllImport.MilCore, EntryPoint = "RenderOptions_IsSoftwareRenderingForcedForProcess")]
-            internal unsafe static extern bool RenderOptions_IsSoftwareRenderingForcedForProcess();
-
-            [DllImport(DllImport.MilCore, EntryPoint = "RenderOptions_EnableGraphicHWAccelerationForRdp")]
-            internal unsafe static extern bool RenderOptions_EnableGraphicHWAccelerationForRdp(bool value);                 
+            internal unsafe static extern bool RenderOptions_IsSoftwareRenderingForcedForProcess();               
 
             [DllImport(DllImport.MilCore, EntryPoint = "MilResource_CreateCWICWrapperBitmap")]
             internal unsafe static extern int /* HRESULT */ CreateCWICWrapperBitmap(

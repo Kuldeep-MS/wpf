@@ -657,6 +657,9 @@
             <Field Name="DisableDirtyRectangles" Value="0x00010000"
                    Comment ="This flag directs the render target to render the full scene,
                    bypassing D3D's dirty-rectangle optimizations." />
+                   
+            <Field Name="EnableHardwareAccelerationForRdp" Value="0x00020000"
+                Comment="This flag indicates that Hardware acceleration is enabled for Rdp." />
 
             <BlockCommentedFields Comment="Test only / internal flags">
                 <Field Name="UseRefRast" Value="0x01000000"

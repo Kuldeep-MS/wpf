@@ -703,6 +703,11 @@ CSlaveHWndRenderTarget::ProcessSetFlags(
         IFC(E_INVALIDARG);
     }
 
+    if(pCmd->flags & MilRTInitialization::EnableHardwareAccelerationForRdp)
+    {
+        IFC(RenderOptions::EnableGraphicHWAccelerationForRdp(true));
+    }
+
     dwNewInitializationFlags =
         pCmd->flags | (m_UCETargetFlags & ~c_dwAllowedFlags);
 

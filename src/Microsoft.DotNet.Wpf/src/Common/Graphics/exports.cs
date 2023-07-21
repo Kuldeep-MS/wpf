@@ -2252,6 +2252,13 @@ namespace System.Windows.Media.Composition
                     }
                 }
 
+                bool? isHardwareAccelerationEnabledForRdp =
+                    System.Windows.CoreCompatibilityPreferences.IsHardwareAccelerationEnabledForRdp;
+                if (isHardwareAccelerationEnabledForRdp != null) 
+                {
+                    command.flags |= (UInt32)MILRTInitializationFlags.MIL_RT_ENABLE_HARDWARE_ACCELERATION_FOR_RDP;
+                }
+
                 if (CoreAppContextSwitches.DisableDirtyRectangles)
                 {
                     command.flags |= (UInt32)MILRTInitializationFlags.MIL_RT_DISABLE_DIRTY_RECTANGLES;
