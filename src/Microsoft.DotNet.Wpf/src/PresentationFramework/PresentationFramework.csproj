@@ -1105,6 +1105,11 @@
     <Compile Include="System\Windows\FrameworkContentElement.cs" />
     <Compile Include="System\Windows\FrameworkContextData.cs" />
     <Compile Include="System\Windows\FrameworkElement.cs" />
+    <Compile Include="System\Windows\IAIAdapter.cs" />
+    <Compile Include="System\Windows\AzureOpenAIAdapter.cs" />
+    <Compile Include="System\Windows\AIAdapterService.cs" />
+    <Compile Include="System\Windows\UIAActionItem.cs" />
+    <Compile Include="System\Windows\UIATaskWorker.cs" />
     <Compile Include="System\Windows\FrameworkElementFactory.cs" />
     <Compile Include="System\Windows\FrameworkPropertyMetadata.cs" />
     <Compile Include="System\Windows\FrameworkReadOnlyPropertyMetadata.cs" />
@@ -1397,6 +1402,8 @@
     <NetCoreReference Include="System.Diagnostics.Tracing" />
     <NetCoreReference Include="System.Diagnostics.TraceSource" />
     <NetCoreReference Include="System.Diagnostics.Debug" />
+    <NetCoreReference Include="System.Diagnostics.DiagnosticSource" />
+    <NetCoreReference Include="System.Runtime.CompilerServices.Unsafe" />
     <NetCoreReference Include="System.IO.FileSystem" />
     <NetCoreReference Include="System.IO.Compression" />
     <NetCoreReference Include="System.IO.IsolatedStorage" />
@@ -1430,12 +1437,16 @@
     <NetCoreReference Include="System.Xml.XPath" />
     <NetCoreReference Include="System.Xml.Document" />
     <NetCoreReference Include="System.Xml.ReaderWriter" />
+    <NetCoreReference Include="System.Text.Encodings.Web" />
+    <NetCoreReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="$(WpfCycleBreakersDir)PresentationUI\PresentationUI-PresentationFramework-impl-cycle.csproj" />
     <ProjectReference Include="$(WpfSourceDir)ReachFramework\ReachFramework.csproj" />
     <ProjectReference Include="$(WpfSourceDir)System.Printing\ref\System.Printing-ref.csproj" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="$(AzureOpenAIVersion)" />
+
     <PackageReference Include="System.Formats.Nrbf" Version="$(SystemFormatsNrbfVersion)" />
   </ItemGroup>
 

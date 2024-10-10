@@ -112,6 +112,18 @@ namespace System.Windows.Controls
 
         #region Public Methods
 
+        //Generate AIResponse
+        public void GenerateAIResponse()
+        {
+            if(AIAdapterService.IsAITextAdapterAvailable())
+            {
+                System.Windows.IAIAdapter currentAIadapter = System.Windows.AIAdapterService.GetCurrentAdapter(AdapterType.Text);
+                currentAIadapter.sendRequest(AIPrompt+ " : " + Text, this);
+            }else{
+                throw new Exception("AI model not available");
+            }
+        }
+
         // -----------------------------------------------------------
         //
         // IAddChild interface

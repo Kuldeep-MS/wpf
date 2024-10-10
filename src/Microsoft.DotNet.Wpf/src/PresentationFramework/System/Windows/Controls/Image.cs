@@ -70,6 +70,17 @@ namespace System.Windows.Controls
 
         #region Public Properties
 
+        public void GenerateAIResponse()
+        {
+            if(AIAdapterService.IsAIImageAdapterAvailable())
+            {
+                System.Windows.IAIAdapter currentAIadapter = System.Windows.AIAdapterService.GetCurrentAdapter(AdapterType.Image);
+                currentAIadapter.sendRequest(AIPrompt, this);
+            }else{
+                throw new Exception("AI model not available");
+            }
+        }
+
         /// <summary>
         /// Gets/Sets the Source on this Image.
         ///

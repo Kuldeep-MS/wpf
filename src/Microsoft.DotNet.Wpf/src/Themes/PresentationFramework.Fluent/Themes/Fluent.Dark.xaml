@@ -2725,7 +2725,7 @@
     </Setter>
   </Style>
   <Style BasedOn="{StaticResource DefaultListViewStyle}" TargetType="{x:Type ListView}" />
-  <system:Double x:Key="ListViewItemMinHeight">40</system:Double>
+  <!-- <system:Double x:Key="ListViewItemMinHeight">40</system:Double> -->
   <system:Double x:Key="ListViewItemMinWidth">88</system:Double>
   <Style x:Key="DefaultListViewItemStyle" TargetType="{x:Type ListViewItem}">
     <Setter Property="Foreground" Value="{DynamicResource ListViewItemForeground}" />

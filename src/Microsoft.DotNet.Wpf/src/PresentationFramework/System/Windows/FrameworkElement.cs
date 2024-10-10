@@ -146,6 +146,50 @@ namespace System.Windows
             FrameworkElement.EnsureFrameworkServices();
         }
 
+        //Adding AIPrompt
+        [CommonDependencyProperty]
+        public static readonly DependencyProperty AIPromptProperty =
+            DependencyProperty.Register(
+                "AIPrompt",
+                typeof(string),
+                typeof(FrameworkElement),
+                new PropertyMetadata(string.Empty));
+
+        public string AIPrompt
+        {
+            get { return (string)GetValue(AIPromptProperty); }
+            set { SetValue(AIPromptProperty, value); }
+        }
+
+        [CommonDependencyProperty]
+        public static readonly DependencyProperty AIResponseProperty =
+            DependencyProperty.Register(
+                "AIResponse",
+                typeof(object),
+                typeof(FrameworkElement),
+                new PropertyMetadata(null));
+
+        public object AIResponse
+        {
+            get { return (object)GetValue(AIResponseProperty); }
+            set { SetValue(AIResponseProperty, value); }
+        }
+
+        //Adding AIPrompt
+        [CommonDependencyProperty]
+        public static readonly DependencyProperty UIAActionsProperty =
+            DependencyProperty.Register(
+                "UIAActions",
+                typeof(UIAActionItem[]),
+                typeof(FrameworkElement),
+                new PropertyMetadata(null));
+
+        public UIAActionItem[] UIAActions
+        {
+            get { return (UIAActionItem[])GetValue(UIAActionsProperty); }
+            set { SetValue(UIAActionsProperty, value); }
+        }
+
         /// <summary>Style Dependency Property</summary>
         [CommonDependencyProperty]
         public static readonly DependencyProperty StyleProperty =
